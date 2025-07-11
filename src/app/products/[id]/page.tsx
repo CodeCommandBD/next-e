@@ -4,22 +4,15 @@ import { getData } from '@/Helpers';
 import React from 'react'
 import { Product } from '../../../../type';
 import ProductPrice from '@/Components/product/ProductPrice';
-
 import Rating from '@/Components/Rating';
 import { FaRegEye } from 'react-icons/fa6';
 import PriceFormate from '@/Components/product/PriceFormate';
 import AddToCartButton from '@/Components/AddToCartButton';
 
-
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
-
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const endpoint = `https://dummyjson.com/products/${id}`
   const product: Product = await getData(endpoint)
-
-
-
-
 
   return (
     <Container className='py-4 px-2 gap-6 grid grid-cols-1 md:grid-cols-2'>
