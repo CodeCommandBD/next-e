@@ -10,14 +10,14 @@ import { FaRegEye } from 'react-icons/fa6';
 import PriceFormate from '@/Components/product/PriceFormate';
 import AddToCartButton from '@/Components/AddToCartButton';
 
-interface PageProps {
+type Props = {
   params: {
     id: string;
   }
 }
 
 
-const Page = async ({ params }: PageProps) => {
+export default async function Page({ params }: Props) {
   const { id } = params;
 
   const endpoint = `https://dummyjson.com/products/${id}`
@@ -82,5 +82,3 @@ const Page = async ({ params }: PageProps) => {
     </Container>
   )
 }
-
-export default Page
