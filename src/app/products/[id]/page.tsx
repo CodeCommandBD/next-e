@@ -10,14 +10,8 @@ import { FaRegEye } from 'react-icons/fa6';
 import PriceFormate from '@/Components/product/PriceFormate';
 import AddToCartButton from '@/Components/AddToCartButton';
 
-type Props = {
-  params: {
-    id: string;
-  }
-}
 
-
-export default async function Page({ params }: Props) {
+export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
 
   const endpoint = `https://dummyjson.com/products/${id}`
